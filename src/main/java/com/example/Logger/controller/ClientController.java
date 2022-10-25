@@ -31,6 +31,7 @@ public class ClientController {
     }
 
     @PostMapping("register")
+
     public ResponseEntity registerClient(@RequestBody RegisterClientRequest request) {
         List<String> validationMessages = validator.validate(request);
         if(!validationMessages.isEmpty())
@@ -40,6 +41,7 @@ public class ClientController {
     }
 
     @PostMapping("login")
+
     public ResponseEntity login(@RequestBody LoginClientRequest request) {
         List<String> validationMessages = validator.validateUsernameAndPassword(request.getUsername(), request.getPassword());
         if(!validationMessages.isEmpty())
