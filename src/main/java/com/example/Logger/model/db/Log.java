@@ -5,13 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Log {
+
+    public Log(String message, LogType logType, Date createdDate) {
+        this.message = message;
+        this.logType = logType;
+        this.createdDate = createdDate;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +28,7 @@ public class Log {
     @Enumerated(EnumType.STRING)
     private LogType logType;
 
-    private LocalDate createdDate;
+    private Date createdDate;
 
 
 }
